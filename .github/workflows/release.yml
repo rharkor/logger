@@ -94,6 +94,8 @@ jobs:
           cache: "npm"
       - name: Install dependencies
         run: npm install
+      - name: Build
+        run: npm run build
       # - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
       #   run: npm audit signatures
       - name: Release

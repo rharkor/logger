@@ -113,3 +113,5 @@ export const loggerExtra = {
   },
   addPrefixToArgs,
 }
+
+export default logger
