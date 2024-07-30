@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeAll, beforeEach } from "vitest"
-import { logger } from "../../../dist/logger/index.cjs"
+import { logger } from "../../../dist/index.cjs"
 
 type TMethods = Parameters<NonNullable<(typeof logger)["onLog"]>>["0"]
 
