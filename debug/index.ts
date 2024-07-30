@@ -24,15 +24,15 @@ const testLogger = async () => {
 // testLogger()
 
 const testTask = async () => {
-  // const task1 = await task.startTask({
-  //   name: "Task 1",
-  // })
-  // await new Promise((resolve) => setTimeout(resolve, 500))
-  // for (let i = 0; i < 50; i++) {
-  //   task1.print("This is a task message " + i)
-  //   await new Promise((resolve) => setTimeout(resolve, 50))
-  // }
-  // task1.stop("Task 1 is done")
+  const task1 = await task.startTask({
+    name: "Task 1",
+  })
+  await new Promise((resolve) => setTimeout(resolve, 500))
+  for (let i = 0; i < 50; i++) {
+    task1.print("This is a task message " + i)
+    await new Promise((resolve) => setTimeout(resolve, 50))
+  }
+  task1.stop("Task 1 is done")
 
   const task2 = await task.startTask({
     name: "Task 2",
