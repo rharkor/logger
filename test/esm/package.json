@@ -1,0 +1,16 @@
+{
+  "name": "esm",
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "devDependencies": {
+    "vitest": "^2.0.4"
+  }
+}

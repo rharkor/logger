@@ -1,25 +1,30 @@
 {
   "name": "@rharkor/lib",
   "version": "1.0.0",
-  "main": "./dist/cjs/index.cjs",
-  "module": "./dist/esm/index.mjs",
-  "types": "./dist/cjs/index.d.cts",
   "scripts": {
     "build": "pkgroll",
     "type-check": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "prettier": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
-    "prettier:fix": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
+    "prettier": "prettier --check \"src/**/*.{ts}\"",
+    "prettier:fix": "prettier --write \"src/**/*.{ts}\"",
+    "test": "npm run -s build && run-s test:*",
+    "test:esm": "npm run -s -w test/esm test",
+    "test:cjs": "npm run -s -w test/cjs test"
   },
+  "workspaces": [
+    "test/*"
+  ],
   "exports": {
-    "require": {
-      "types": "./dist/cjs/index.d.cts",
-      "default": "./dist/cjs/index.cjs"
-    },
-    "import": {
-      "types": "./dist/esm/index.d.mts",
-      "default": "./dist/esm/index.mjs"
+    "logger": {
+      "require": {
+        "types": "./dist/logger/index.d.cts",
+        "default": "./dist/logger/index.cjs"
+      },
+      "import": {
+        "types": "./dist/logger/index.d.mts",
+        "default": "./dist/logger/index.mjs"
+      }
     }
   },
   "dependencies": {
@@ -32,6 +37,7 @@
     "@types/node": "^22.0.0",
     "eslint": "^9.8.0",
     "globals": "^15.8.0",
+    "npm-run-all": "^4.1.5",
     "pkgroll": "^2.1.1",
     "prettier": "3.3.3",
     "typescript": "^5.4.3",
