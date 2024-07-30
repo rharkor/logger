@@ -61,5 +61,6 @@ export function addPrefixToArgs(prefix: TLogger["prefix"], ...args: unknown[]) {
   return args
 }
 
-export const allowDebug = () => process.env.LOGGER_ENV === "development"
+const getLoggerEnv = () => process.env.LOGGER_ENV || "production"
+export const allowDebug = () => getLoggerEnv() === "development"
 export const isBrowser = () => typeof window !== "undefined"

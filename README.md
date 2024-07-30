@@ -1,32 +1,52 @@
-# Logger
+# Logger 📝
 
-A simple logger for all your applications.
+Logger is an intuitive and robust tool tailored for logging messages across all your applications, whether it's a complex web application or a simple script. Ensure every important event is captured with Logger!
 
-Either you are developing a web application or a simple script, you can use this logger to log your messages.
+![Logger](./docs/demo.png)
 
-## Installation
+## Features 🌟
+
+- **Simple Integration:** Effortlessly embed Logger into your projects.
+- **Versatile:** Suitable for both development and production environments.
+- **Asynchronous Support:** Built to handle modern asynchronous JavaScript workflows.
+
+## Installation 🔧
+
+Install Logger with a simple command:
 
 ```bash
 npm install @rharkor/logger
 ```
 
-## Usage
+## Usage 🛠️
+
+To start using Logger in your project, simply import and utilize the logging functions as shown:
 
 ```typescript
 import logger from "@rharkor/logger"
 
-logger.info("This is an info message")
-logger.warn("This is a warning message")
-logger.error("This is an error message")
+logger.log("This is a log message") // For general logs
+logger.subLog("This is a sub log message") // For sub logs
+logger.info("This is an info message") // For informational messages
+logger.warn("This is a warning message") // For warnings
+logger.error("This is an error message") // For errors
+logger.success("This is a success message") // For success messages
+logger.debug("This is a debug message") // For debugging messages
 ```
 
-## Common issues
+### Debugging logs
 
-If you are getting the warning `Logger is not initialized yet. Please call and await logger.init()` it is because you are trying to log a message before the logger is initialized, it usually take less than 1s.
+Logger supports debugging logs, which are disabled by default. To enable debugging logs, set the `LOGGER_ENV` environment variable to `development` and it will automatically enable debugging logs. If the environment variable is not set, Logger will default to `production` and debugging logs will be disabled.
 
-**Please note that the logger initializes itself when you import it.**
+## Common Issues and Troubleshooting 🔍
 
-### How to fix it
+Encountering the warning `Logger is not initialized yet. Please call and await logger.init()`? This means you're attempting to log a message before Logger is ready. Initialization typically completes in under a second.
+
+**Remember: Logger initializes automatically upon import.**
+
+### Resolution Steps
+
+To fix initialization issues, make sure to await the `init()` method before logging:
 
 ```typescript
 import logger from "@rharkor/logger"
@@ -34,17 +54,17 @@ import logger from "@rharkor/logger"
 async function main() {
   await logger.init()
   logger.info("This is an info message")
-  logger.warn("This is a warning message")
-  logger.error("This is an error message")
 }
 
 main()
 ```
 
-### Why is this happening?
+### Explanation
 
-In order the make the logger work with CommonJS we need to load chalk asynchronously, and that is why the logger is not instantly initialized when you import it.
+To accommodate CommonJS compatibility, we asynchronously load dependencies like `chalk`. This setup requires that Logger isn't instantly ready upon import.
 
-## License
+## License 📄
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is distributed under the MIT License. For more details, see the [LICENSE](LICENSE) file in the repository.
+
+This enhanced README not only clarifies usage but also incorporates emojis to make it more engaging and reader-friendly.
