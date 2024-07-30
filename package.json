@@ -1,6 +1,9 @@
 {
   "name": "@rharkor/lib",
   "version": "1.0.0",
+  "main": "./dist/logger/index.cjs",
+  "module": "./dist/logger/index.mjs",
+  "types": "./dist/logger/index.d.cts",
   "scripts": {
     "build": "pkgroll",
     "type-check": "tsc --noEmit",
@@ -12,19 +15,41 @@
     "test:esm": "npm run -s -w test/esm test",
     "test:cjs": "npm run -s -w test/cjs test"
   },
+  "author": "HUORT Louis (https://louis.huort.com)",
+  "homepage": "https://github.com/rharkor/logger",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rharkor/logger.git"
+  },
+  "license": "MIT",
+  "description": "A simple logger for all your applications",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "logger",
+    "log",
+    "console",
+    "cli",
+    "terminal",
+    "color",
+    "colorful",
+    "colorful-log",
+    "colorful-logger",
+    "colorful-console"
+  ],
   "workspaces": [
     "test/*"
   ],
   "exports": {
-    "logger": {
-      "require": {
-        "types": "./dist/logger/index.d.cts",
-        "default": "./dist/logger/index.cjs"
-      },
-      "import": {
-        "types": "./dist/logger/index.d.mts",
-        "default": "./dist/logger/index.mjs"
-      }
+    "require": {
+      "types": "./dist/logger/index.d.cts",
+      "default": "./dist/logger/index.cjs"
+    },
+    "import": {
+      "types": "./dist/logger/index.d.mts",
+      "default": "./dist/logger/index.mjs"
     }
   },
   "dependencies": {
