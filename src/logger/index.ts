@@ -94,24 +94,3 @@ const warnIfNotInitialized = () => {
     alreadyWarned = true
   }
 }
-
-export const loggerExtra = {
-  printColor: {
-    _log,
-    log,
-    warn,
-    warnText,
-    debug,
-    debugText,
-    error,
-    errorText,
-    success,
-    successText,
-    info,
-    infoText,
-    subLog,
-  },
-  addPrefixToArgs,
-}
-
-export default logger
