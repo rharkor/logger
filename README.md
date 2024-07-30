@@ -20,10 +20,12 @@ npm install @rharkor/logger
 
 ## Usage 🛠️
 
+### Logger
+
 To start using Logger in your project, simply import and utilize the logging functions as shown:
 
 ```typescript
-import logger from "@rharkor/logger"
+import { logger } from "@rharkor/logger"
 
 logger.log("This is a log message") // For general logs
 logger.subLog("This is a sub log message") // For sub logs
@@ -34,7 +36,7 @@ logger.success("This is a success message") // For success messages
 logger.debug("This is a debug message") // For debugging messages
 ```
 
-### Debugging logs
+#### Debugging logs
 
 Logger supports debugging logs, which are disabled by default. To enable debugging logs, set the `LOGGER_ENV` environment variable to `development` and it will automatically enable debugging logs. If the environment variable is not set, Logger will default to `production` and debugging logs will be disabled.
 
