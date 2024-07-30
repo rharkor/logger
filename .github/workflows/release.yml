@@ -46,8 +46,7 @@ jobs:
           # Fetch all
           git fetch origin
           # Create the main-release branch from main if it doesn't exist
-          if git show-ref --verify --quiet "refs/heads/${MAIN_RELEASE_BRANCH}"; then
-          else
+          if ! git show-ref --verify --quiet "refs/heads/${MAIN_RELEASE_BRANCH}"; then
               echo "Target branch ${MAIN_RELEASE_BRANCH} does not exist. Creating it from main."
               git checkout -b ${MAIN_RELEASE_BRANCH} origin/main
               git push --set-upstream origin ${MAIN_RELEASE_BRANCH}
