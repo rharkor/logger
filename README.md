@@ -73,7 +73,7 @@ Encountering the warning `Logger is not initialized yet. Please call and await l
 To fix initialization issues, make sure to await the `init()` method before logging:
 
 ```typescript
-import logger from "@rharkor/logger"
+import { logger } from "@rharkor/logger"
 
 async function main() {
   await logger.init()
