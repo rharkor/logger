@@ -1,6 +1,6 @@
 {
   "name": "@rharkor/logger",
-  "version": "1.0.0-rec-release.2",
+  "version": "1.0.0-rec-release.3",
   "main": "./dist/logger/index.cjs",
   "module": "./dist/logger/index.mjs",
   "types": "./dist/logger/index.d.cts",
