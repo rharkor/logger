@@ -1,5 +1,5 @@
 {
-  "name": "@rharkor/lib",
+  "name": "@rharkor/logger",
   "version": "1.0.0",
   "main": "./dist/logger/index.cjs",
   "module": "./dist/logger/index.mjs",
