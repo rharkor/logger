@@ -42,8 +42,16 @@ jobs:
         run: |
           SOURCE_BRANCH="${GITHUB_REF_NAME}"
           TARGET_BRANCH="${GITHUB_REF_NAME}-release"
+          MAIN_RELEASE_BRANCH="main-release"
           # Fetch all
           git fetch origin
+          # Create the main-release branch from main if it doesn't exist
+          if git show-ref --verify --quiet "refs/heads/${MAIN_RELEASE_BRANCH}"; then
+          else
+              echo "Target branch ${MAIN_RELEASE_BRANCH} does not exist. Creating it from main."
+              git checkout -b ${MAIN_RELEASE_BRANCH} origin/main
+              git push --set-upstream origin ${MAIN_RELEASE_BRANCH}
+          fi
           # Check if the target branch exists and checkout to it
           if git show-ref --verify --quiet "refs/heads/${TARGET_BRANCH}"; then
               git checkout ${TARGET_BRANCH}
