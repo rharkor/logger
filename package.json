@@ -1,6 +1,6 @@
 {
   "name": "@rharkor/lib",
-  "version": "1.0.0",
+  "version": "1.0.0-rec-release.1",
   "main": "./dist/logger/index.cjs",
   "module": "./dist/logger/index.mjs",
   "types": "./dist/logger/index.d.cts",
