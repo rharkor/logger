@@ -8,5 +8,8 @@
         "dev"
     ],
     "platformAutomerge": true,
-    "branchConcurrentLimit": 3
+    "branchConcurrentLimit": 3,
+    "schedule": [
+        "every weekend"
+    ]
 }
