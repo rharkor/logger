@@ -54,6 +54,7 @@ export async function startTask(options: {
 
   return {
     print: registerHandlePrint("log"),
+    log: registerHandlePrint("log"),
     error: registerHandlePrint("error"),
     warn: registerHandlePrint("warn"),
     info: registerHandlePrint("info"),

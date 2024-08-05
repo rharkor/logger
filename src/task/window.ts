@@ -1,6 +1,7 @@
 import { logger } from "@/logger"
 import { addPrefixToArgs, errorText, infoText, log, successText, warnText } from "@/logger/utils"
 import { stderr } from "process"
+import { clearLine, moveCursor } from 'readline'
 
 /**
  * Clear the last lines of the terminal
@@ -8,8 +9,8 @@ import { stderr } from "process"
  */
 const clearLastLines = (count: number) => {
   for (let i = 0; i < count; i++) {
-    stderr.moveCursor?.(0, -1) // Move cursor up one line
-    stderr.clearLine?.(0) // Clear the current line
+    moveCursor(stderr, 0, -1) // Move cursor up one line
+    clearLine(stderr, 0) // Clear the current line
   }
 }
 
