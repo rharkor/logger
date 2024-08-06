@@ -8,4 +8,5 @@ export type TLogger = typeof console & {
   prefix?: string | (() => string)
   onLog?: (type: TMethods, args: unknown[]) => void
   _log: (typeof console)["log"]
+  utils: typeof import("./utils")
 }
