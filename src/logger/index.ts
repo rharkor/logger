@@ -18,6 +18,7 @@ import {
   log,
   _log,
 } from "./utils"
+import * as utils from "./utils"
 
 export const logger: TLogger = {
   ...console,
@@ -83,6 +84,7 @@ export const logger: TLogger = {
     console.log(...value)
     logger.onLog?.("subLog", value)
   },
+  utils,
 }
 // Auto init logger
 logger.init()
