@@ -8,11 +8,7 @@ const printColor =
     const data = args
       .map((arg) => {
         if (typeof arg === "object" && arg) {
-          const str = arg.toString()
-          if (str === "[object Object]") {
-            return JSON.stringify(arg, null, 2)
-          }
-          return str
+          return JSON.stringify(arg, null, 2)
         }
         return arg
       })
