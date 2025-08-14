@@ -1,4 +1,3 @@
- 
 import { logger } from "../dist/index.mjs"
 
 const testLogger = async () => {
