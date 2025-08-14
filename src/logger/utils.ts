@@ -1,30 +1,28 @@
 import { getChalk } from "@/lib/chalk"
 import { TLogger } from "./types"
+
 import { yellow, black, blue, gray, green, orange, red, text } from "./constants"
 
 const printColor =
   (bg?: string, text?: string) =>
   (...args: unknown[]) => {
-    const data = args
-      .map((arg) => {
-        if (typeof arg === "object" && arg) {
-          return JSON.stringify(arg, null, 2)
-        }
-        return arg
-      })
-      .join(" ")
-
-    if (isBrowser()) return data
+    if (isBrowser()) return args
     try {
       // This may be crash if chalk is not loaded
       const chalk = getChalk()
-      if (bg && text) return chalk.bgHex(bg).hex(text)(data)
-      if (bg) return chalk.bgHex(bg)(data)
-      if (text) return chalk.hex(text)(data)
-    } catch (e) {
+      const data = args.map((arg) => {
+        if (typeof arg === "object" && arg) {
+          return arg
+        }
+        if (bg && text) return chalk.bgHex(bg).hex(text)(arg)
+        if (bg) return chalk.bgHex(bg)(arg)
+        if (text) return chalk.hex(text)(arg)
+        return arg
+      })
       return data
+    } catch (e) {
+      return args
     }
-    return data
   }
 
 export const _log = printColor(undefined, undefined)
