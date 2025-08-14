@@ -30,57 +30,57 @@ export const logger: TLogger = {
   allowDebug,
   _log: (...args: Parameters<(typeof console)["log"]>) => {
     warnIfNotInitialized()
-    const value = addPrefixToArgs(logger.prefix, _log(...args))
+    const value = addPrefixToArgs(logger.prefix, ..._log(...args))
     console.log(...value)
     logger.onLog?.("log", value)
   },
   log: (...args: Parameters<(typeof console)["log"]>) => {
     warnIfNotInitialized()
-    const value = addPrefixToArgs(logger.prefix, log(...args))
+    const value = addPrefixToArgs(logger.prefix, ...log(...args))
     console.log(...value)
     logger.onLog?.("log", value)
   },
   debug: (...args: unknown[]) => {
     if (allowDebug()) {
       warnIfNotInitialized()
-      const value = addPrefixToArgs(logger.prefix, debug(" DEBUG "), debugText(...args))
+      const value = addPrefixToArgs(logger.prefix, ...debug(" DEBUG "), ...debugText(...args))
       console.debug(...value)
       logger.onLog?.("debug", value)
     }
   },
   warn: (...args: unknown[]) => {
     warnIfNotInitialized()
-    const value = addPrefixToArgs(logger.prefix, warn(" WARN "), warnText(...args))
+    const value = addPrefixToArgs(logger.prefix, ...warn(" WARN "), ...warnText(...args))
     console.warn(...value)
     logger.onLog?.("warn", value)
   },
   error: (...args: unknown[]) => {
     warnIfNotInitialized()
-    const value = addPrefixToArgs(logger.prefix, error(" ERROR "), errorText(...args))
+    const value = addPrefixToArgs(logger.prefix, ...error(" ERROR "), ...errorText(...args))
     console.error(...value)
     logger.onLog?.("error", value)
   },
   trace: (...args: unknown[]) => {
     warnIfNotInitialized()
-    const value = addPrefixToArgs(logger.prefix, error(" ERROR "), errorText(...args))
+    const value = addPrefixToArgs(logger.prefix, ...error(" ERROR "), ...errorText(...args))
     console.trace(...value)
     logger.onLog?.("trace", value)
   },
   success: (...args: unknown[]) => {
     warnIfNotInitialized()
-    const value = addPrefixToArgs(logger.prefix, success(" SUCCESS "), successText(...args))
+    const value = addPrefixToArgs(logger.prefix, ...success(" SUCCESS "), ...successText(...args))
     console.log(...value)
     logger.onLog?.("success", value)
   },
   info: (...args: unknown[]) => {
     warnIfNotInitialized()
-    const value = addPrefixToArgs(logger.prefix, info(" INFO "), infoText(...args))
+    const value = addPrefixToArgs(logger.prefix, ...info(" INFO "), ...infoText(...args))
     console.log(...value)
     logger.onLog?.("info", value)
   },
   subLog: (...args: unknown[]) => {
     warnIfNotInitialized()
-    const value = addPrefixToArgs(logger.prefix, subLog(...args))
+    const value = addPrefixToArgs(logger.prefix, ...subLog(...args))
     console.log(...value)
     logger.onLog?.("subLog", value)
   },
